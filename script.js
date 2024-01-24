@@ -7,11 +7,14 @@ compPick = "";
 const playGame = () => {
   let userPick = prompt(
     "Please enter 'R' for Rock, 'P' for Paper, 'S' for scissor"
-  )
-    .toLowerCase()
-    .trim();
-  console.log(userPick);
+  );
+  if (userPick === null) {
+    console.log("User canceled the game.");
+    return;
+  }
+  userPick = userPick.toLowerCase().trim();
 
+  console.log(userPick);
   compPick = getComputerPick();
   console.log(compPick);
 
@@ -36,7 +39,6 @@ const playGame = () => {
     alert("You win!");
     wins++;
   }
-
   playAgain();
 };
 
@@ -47,6 +49,14 @@ const getComputerPick = () => {
   return compPick;
 };
 
-const playAgain = () => {};
+const playAgain = () => {
+  let playAgainPrompt = confirm("Would you like to play again?");
+
+  if (playAgainPrompt) {
+    playGame();
+  } else {
+    alert(`Wins: ${wins}, Losses: ${loss}, ties: ${ties}`);
+  }
+};
 
 playGame();
