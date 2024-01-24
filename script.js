@@ -2,7 +2,7 @@ let wins = 0;
 let loss = 0;
 let ties = 0;
 const compChoices = ["r", "p", "s"];
-compPick = "";
+let compPick = "";
 
 const playGame = () => {
   let userPick = prompt(
