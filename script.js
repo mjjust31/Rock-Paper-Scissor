@@ -2,16 +2,25 @@ let wins = 0;
 let loss = 0;
 let ties = 0;
 const compChoices = ["r", "p", "s"];
-let userPick = "";
-let compPick = "";
+compPick = "";
 
 const playGame = () => {
   let userPick = prompt(
     "Please enter 'R' for Rock, 'P' for Paper, 'S' for scissor"
-  );
+  )
+    .toLowerCase()
+    .trim();
   console.log(userPick);
-  let compPick = getComputerPick();
+
+  compPick = getComputerPick();
   console.log(compPick);
+
+  while (userPick !== "r" && userPick !== "s" && userPick !== "p") {
+    alert("Please choose a valid letter");
+    userPick = prompt(
+      "Please enter 'R' for Rock, 'P' for Paper, 'S' for scissor"
+    );
+  }
 
   if (compPick === userPick) {
     alert("it's a tie!");
@@ -27,6 +36,8 @@ const playGame = () => {
     alert("You win!");
     wins++;
   }
+
+  playAgain();
 };
 
 const getComputerPick = () => {
@@ -35,5 +46,7 @@ const getComputerPick = () => {
 
   return compPick;
 };
+
+const playAgain = () => {};
 
 playGame();
