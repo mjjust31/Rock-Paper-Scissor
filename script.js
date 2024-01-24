@@ -55,7 +55,7 @@ const playAgain = () => {
   if (playAgainPrompt) {
     playGame();
   } else {
-    alert(`Wins: ${wins}, Losses: ${loss}, ties: ${ties}`);
+    alert(`Wins: ${wins} \nLosses: ${loss} \nties: ${ties}`);
   }
 };
 
